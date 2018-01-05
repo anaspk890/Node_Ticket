@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= data.title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1><%= data.title %></h1>
+<form method="post">
+    <table border="1">
+        <tr>
+            <td>
+                Customer
+            </td>
+            <td>
+                <select name="customer">
+                    <% for(var i = 0; i < data.customersList.length; i++) { %>
+                    <option value=" <%= data.customersList[i].customerId %> ">
+                        <%= data.customersList[i].customerName %>
+                    </option>
+
+                    <% } %>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Area</td>
+            <td>
+                <select name="area">
+                    <option value="technical">technical</option>
+                    <option value="non technical">non technical</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Assigned to</td>
+            <td>
+                <select name="assignedTo">
+                    <option value="">None</option>
+                    <option value="agent2">Agent 2</option>
+                    <option value="agent3">Agent 3</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Comments</td>
+            <td>
+           <textarea rows="4" cols="50" name="agentComments" id="agentComments">
+            </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="reset" value="Clear"></td>
+            <td>
+                <input type="submit" value="Submit">
+            </td>
+        </tr>
+        <input type="hidden" name="createdBy" value="<%= data.agent.userName %>"/>
+    </table>
+</form>
+</body>
+</html>
+
+<!--<select>
+<option value="volvo">Volvo</option>
+<option value="saab">Saab</option>
+<option value="mercedes">Mercedes</option>
+<option value="audi">Audi</option>
+</select>-->

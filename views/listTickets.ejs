@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= data.title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1><%= data.title %></h1>
+<form>
+    <table border="1">
+        <thead>
+        <tr>
+            <td>Customer</td>
+            <td>Area</td>
+            <td>
+                Reg:Date
+            </td>
+            <td>
+                Reg:by
+            </td>
+            <td>
+                Assigned to
+            </td>
+            <td>
+                Status
+            </td>
+            <td>
+                Comments
+                <table>
+                    <tr>
+                        <td>Commented By</td>
+                        <td>Commented On</td>
+                        <td>Comment</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                New
+            </td>
+            <td>Edit</td>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <% for(var i = 0; i < data.resultList.length; ++i) { %>
+        <% var item = data.resultList[i] %>
+        <tr>
+            <td> <%= item.customerName %></td>
+            <td> <%= item.area %></td>
+            <td> <%= item.createdOn %></td>
+            <td> <%= item.createdBy %></td>
+            <td> <%= item.assignedTo %></td>
+            <td> <%= item.status %></td>
+
+            <td>
+                <table border="1">
+                    <% for(var j = 0; item.comments && j < item.comments.length; ++j) { %>
+                    <% var comment = item.comments[j] %>
+                    <tr>
+                        <td> <%= comment.createdBy %></td>
+                        <td> <%= comment.commentedDate %></td>
+                        <td> <%= comment.comment %></td>
+                    </tr>
+                    <% } %>
+                </table>
+            </td>
+            <td><a href="/comments/?ticketNo= <%= item.ticketNo %>">New</a></td>
+            <td><a href="#">edit</a></td>
+            <% } %>
+        </tr>
+        </tbody>
+    </table>
+    <input type="hidden" name="createdBy" value="<%= data.userName %>"/>
+    <input type="hidden" name="ticketNo" value="<%= data.ticketNo %>"/>
+</form>
+</body>
+</html>
+
+<!--<select>
+<option value="volvo">Volvo</option>
+<option value="saab">Saab</option>
+<option value="mercedes">Mercedes</option>
+<option value="audi">Audi</option>
+</select>-->

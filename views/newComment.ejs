@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= data.title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1><%= data.title %></h1>
+<form method="post">
+    <table border="1">
+        <tr>
+            <td>Comments</td>
+            <td>
+           <textarea rows="4" cols="50" name="agentComments" id="agentComments">
+            </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="reset" value="Clear"></td>
+            <td>
+                <input type="submit" value="Submit">
+            </td>
+        </tr>
+        <input type="hidden" name="createdBy" value="<%= data.userName %>"/>
+        <input type="hidden" name="ticketNo" value="<%= data.ticketNo %>"/>
+    </table>
+</form>
+</body>
+</html>
+
+<!--<select>
+<option value="volvo">Volvo</option>
+<option value="saab">Saab</option>
+<option value="mercedes">Mercedes</option>
+<option value="audi">Audi</option>
+</select>-->

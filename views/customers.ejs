@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1><%= title %></h1>
+<div>
+    <table>
+        <thead>
+        <td>ID</td>
+        <td>Name</td>
+        <td>More...</td>
+        </thead>
+        <tbody>
+
+        <% for(var i = 0; i < customers.length; i++) { %>
+        <tr>
+            <td> <%= customers[i].customerId %></td>
+            <td> <%= customers[i].customerName %></td>
+            <td> <%= customers[i].otherInfo %></td>
+            <% } %>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
